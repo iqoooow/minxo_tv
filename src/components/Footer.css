@@ -1,0 +1,111 @@
+/* =========================================================================
+   Footer
+   ========================================================================= */
+
+.footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-2xl);
+  padding: var(--space-2xl) var(--content-padding) var(--space-xl);
+}
+
+.footer-inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .footer-inner {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+/* Brand */
+.footer-brand {
+  max-width: 360px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.footer-logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.footer-wordmark {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Actions */
+.footer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.footer-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-glass);
+  border: 1px solid var(--color-border);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-social-pill:hover {
+  background: var(--color-glass-strong);
+  border-color: var(--color-primary-soft);
+}
+
+.footer-download-btn {
+  align-self: flex-start;
+  font-size: 0.9375rem;
+}
+
+/* Bottom */
+.footer-bottom {
+  width: 100%;
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-copyright {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}

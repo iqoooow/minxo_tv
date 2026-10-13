@@ -1,0 +1,170 @@
+/* =========================================================================
+   Section States (Skeleton, Empty, Error)
+   ========================================================================= */
+
+/* --- Card Skeleton --- */
+.card-skeleton {
+  width: 140px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 480px) {
+  .card-skeleton {
+    width: 155px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-skeleton {
+    width: 170px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-skeleton {
+    width: 185px;
+  }
+}
+
+.card-skeleton-thumb {
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-poster);
+  width: 100%;
+}
+
+.card-skeleton-info {
+  padding: var(--space-sm) var(--space-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-skeleton-line {
+  height: 12px;
+  border-radius: 4px;
+}
+
+.card-skeleton-line.short {
+  width: 80%;
+}
+
+.card-skeleton-line.tiny {
+  width: 50%;
+  height: 10px;
+}
+
+/* --- Rail Skeleton --- */
+.rail-skeleton-title {
+  width: 160px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+.rail-skeleton-link {
+  width: 60px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+/* --- Hero Skeleton --- */
+.hero-skeleton {
+  min-height: 420px;
+  border-radius: var(--radius-hero);
+  margin: var(--space-md) var(--content-padding) 0;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .hero-skeleton {
+    min-height: 480px;
+    margin-top: var(--space-lg);
+    padding: var(--space-2xl) var(--space-xl);
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-skeleton {
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 520px;
+  }
+}
+
+.hero-skeleton-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 500px;
+}
+
+.hero-skeleton-badge {
+  width: 100px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+}
+
+.hero-skeleton-title {
+  width: 75%;
+  height: 44px;
+  border-radius: 8px;
+}
+
+.hero-skeleton-desc {
+  width: 100%;
+  height: 36px;
+  border-radius: 6px;
+}
+
+.hero-skeleton-btns {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.hero-skeleton-btn {
+  width: 140px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+}
+
+/* --- State Boxes (Error & Empty) --- */
+.state-box {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  padding: var(--space-2xl) var(--space-lg);
+  margin: var(--space-lg) var(--content-padding);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.state-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-xs);
+}
+
+.state-title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  color: var(--color-text);
+}
+
+.state-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  max-width: 400px;
+}
+
+.state-retry-btn {
+  margin-top: var(--space-md);
+  padding: 10px 24px;
+  font-size: 0.875rem;
+}

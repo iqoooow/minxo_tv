@@ -1,0 +1,147 @@
+/* =========================================================================
+   Continue Watching
+   Hover lift, TV remote focus, play button transition, and entry progress fill.
+   ========================================================================= */
+
+.cw-card {
+  width: 260px;
+  flex-shrink: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--radius-poster);
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .cw-card {
+    width: 300px;
+  }
+}
+
+/* Thumbnail */
+.cw-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-poster);
+  overflow: hidden;
+  transition: transform var(--motion-normal) var(--motion-ease),
+              box-shadow var(--motion-normal) var(--motion-ease);
+  will-change: transform;
+}
+
+.cw-card:hover .cw-thumb,
+.cw-card:focus-visible .cw-thumb {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(255, 31, 142, 0.35);
+}
+
+.cw-card:active .cw-thumb {
+  transform: translateY(-2px) scale(0.98);
+}
+
+/* TV Remote Focus State */
+.cw-card:focus-visible .cw-thumb {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  box-shadow: 0 0 24px rgba(255, 31, 142, 0.6), 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.cw-thumb-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cw-thumb-watermark {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.06);
+  user-select: none;
+}
+
+/* Play button */
+.cw-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-glass-strong);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--motion-fast) var(--motion-ease),
+              transform var(--motion-fast) var(--motion-ease),
+              background var(--motion-fast) var(--motion-ease);
+}
+
+.cw-card:hover .cw-play,
+.cw-card:focus-visible .cw-play {
+  opacity: 1;
+}
+
+.cw-play:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.cw-play:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* Progress bar */
+.cw-progress-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.cw-progress-bar {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 0 2px 0 0;
+  transition: width 800ms var(--motion-ease);
+  will-change: width;
+}
+
+/* Info */
+.cw-info {
+  padding: var(--space-sm) var(--space-xs);
+}
+
+.cw-title {
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 2px;
+}
+
+.cw-meta {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-thumb {
+    transition: none;
+  }
+  .cw-card:hover .cw-thumb,
+  .cw-card:focus-visible .cw-thumb {
+    transform: none;
+  }
+  .cw-progress-bar {
+    transition: none;
+  }
+}

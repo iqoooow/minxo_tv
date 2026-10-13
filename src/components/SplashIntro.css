@@ -1,0 +1,79 @@
+/* =========================================================================
+   Signature Splash Intro (Once per session)
+   Stroke animation (~800ms) followed by fast opacity fade (~200ms).
+   ========================================================================= */
+
+.splash-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  opacity: 1;
+  transition: opacity 200ms var(--motion-ease);
+}
+
+.splash-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  user-select: none;
+}
+
+.splash-svg {
+  width: 160px;
+  height: 160px;
+  overflow: visible;
+}
+
+@media (min-width: 768px) {
+  .splash-svg {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.splash-m-path {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawStroke 800ms var(--motion-ease) forwards;
+}
+
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.splash-tagline {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transform: translateY(8px);
+  animation: revealTagline 400ms var(--motion-ease) 450ms forwards;
+  letter-spacing: 0.02em;
+}
+
+@keyframes revealTagline {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-overlay {
+    display: none !important;
+  }
+}

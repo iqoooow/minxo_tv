@@ -1,0 +1,197 @@
+/* =========================================================================
+   Title Details View
+   Shared-element transition (View Transitions API) + plain fade fallback.
+   ========================================================================= */
+
+.details-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  background: rgba(14, 10, 18, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  animation: detailsFadeIn var(--motion-slow) var(--motion-ease);
+}
+
+@keyframes detailsFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.details-container {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+  animation: detailsSlideUp var(--motion-slow) var(--motion-ease);
+}
+
+@keyframes detailsSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.details-close-btn {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--motion-fast) var(--motion-ease),
+              background var(--motion-fast) var(--motion-ease);
+  cursor: pointer;
+}
+
+.details-close-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.08);
+}
+
+.details-close-btn:active {
+  transform: scale(0.95);
+}
+
+/* Banner */
+.details-banner {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.details-banner-watermark {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 7rem;
+  color: rgba(255, 255, 255, 0.08);
+  user-select: none;
+}
+
+.details-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--color-surface) 0%,
+    rgba(26, 19, 32, 0.4) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.details-badge {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  z-index: 2;
+}
+
+.details-play-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--color-glass-strong);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--motion-fast) var(--motion-ease),
+              background var(--motion-fast) var(--motion-ease);
+  cursor: pointer;
+}
+
+.details-play-center:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.details-play-center:active {
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+/* Body */
+.details-body {
+  padding: var(--space-lg) var(--space-xl) var(--space-xl);
+}
+
+.details-meta-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.details-meta-item {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.details-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: var(--space-md);
+}
+
+.details-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+}
+
+.details-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.details-btn {
+  font-size: 0.9375rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .details-overlay,
+  .details-container {
+    animation: none;
+  }
+}
